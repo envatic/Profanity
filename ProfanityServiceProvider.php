@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of consoletvs/profanity.
+ * This file is part of envatic/profanity.
  *
  * (c) Erik Campobadal <soc@erik.cat>
  *
@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace ConsoleTVs\Profanity;
+namespace Envatic\Profanity;
 
 use Illuminate\Support\ServiceProvider;
 

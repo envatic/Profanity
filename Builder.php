@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of consoletvs/profanity.
+ * This file is part of envatic/profanity.
  *
  * (c) Erik Campobadal <soc@erik.cat>
  *
@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace ConsoleTVs\Profanity;
+namespace Envatic\Profanity;
 
-use ConsoleTVs\Profanity\Classes\Blocker;
+use Envatic\Profanity\Classes\Blocker;
 
 /**
  * This is the profanity builder class.
@@ -26,10 +26,10 @@ class Builder
      * @param string $type
      * @param string $library
      *
-     * @return \ConsoleTVs\Profanity\Classes\Blocker
+     * @return \Envatic\Profanity\Classes\Blocker
      */
-    public static function blocker($text, $blocker = '****')
+    public static function blocker($text, $blocker = '****' )
     {
-        return new Blocker($text, $blocker);
+        return new Blocker($text, $blocker );
     }
 }

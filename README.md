@@ -3,9 +3,9 @@
 <p align="center">
 <a href="https://styleci.io/repos/92664523"><img src="https://styleci.io/repos/92664523/shield?branch=master&style=flat" alt="StyleCI Status"></a>
 <a href="https://styleci.io/repos/69124179"><img src="https://img.shields.io/badge/Built_for-PHP-blue.svg" alt="Build For PHP"></a>
-<a href="https://packagist.org/packages/consoletvs/profanity"><img src="https://poser.pugx.org/consoletvs/profanity/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/consoletvs/profanity"><img src="https://poser.pugx.org/consoletvs/profanity/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/consoletvs/profanity"><img src="https://poser.pugx.org/consoletvs/profanity/license.svg" alt="License"></a>
+<a href="https://packagist.org/packages/envatic/profanity"><img src="https://poser.pugx.org/envatic/profanity/d/total.svg" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/envatic/profanity"><img src="https://poser.pugx.org/envatic/profanity/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/envatic/profanity"><img src="https://poser.pugx.org/envatic/profanity/license.svg" alt="License"></a>
 </p>
 
 ## What is Profanity?
@@ -31,7 +31,7 @@ $clean_words = Profanity::blocker('My cool string bitch')->filter()
 First, require it using composer:
 
 ```
-composer require consoletvs/profanity
+composer require envatic/profanity
 ```
 
 #### Laravel
@@ -41,13 +41,13 @@ To install it on laravel, simply add the service provider and the alias in ```co
 Service Provider:
 
 ```php
-ConsoleTVs\Profanity\ProfanityServiceProvider::class,
+Envatic\Profanity\ProfanityServiceProvider::class,
 ```
 
 Alias (optional):
 
 ```php
-'Profanity' => ConsoleTVs\Profanity\Facades\Profanity::class,
+'Profanity' => Envatic\Profanity\Facades\Profanity::class,
 ```
 
 ### Usage
@@ -56,7 +56,7 @@ Alias (optional):
 
 ```php
 $words = 'My bad word bitch';
-$clean_words = \ConsoleTVs\Profanity\Builder::blocker($words)->filter();
+$clean_words = \Envatic\Profanity\Builder::blocker($words)->filter();
 // My bad word *****
 ```
 
@@ -68,7 +68,7 @@ $clean_words = \ConsoleTVs\Profanity\Builder::blocker($words)->filter();
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use ConsoleTVs\Profanity\Facades\Profanity;
+use Envatic\Profanity\Facades\Profanity;
 // or using the alias:
 // use Profanity;
 

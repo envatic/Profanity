@@ -1,31 +1,37 @@
 {
-    "name": "consoletvs/profanity",
-    "description": "PHP library to block bad words in a string",
-    "type": "library",
-    "require": {
-        "illuminate/support": "5.4.*|5.5.*|5.6.*|5.7.*|5.8.*|6.*|7.*|8.*|9.*"
-    },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Erik Campobadal",
-            "email": "ConsoleTVs@gmail.com"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "ConsoleTVs\\Profanity\\": "."
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "ConsoleTVs\\Profanity\\ProfanityServiceProvider"
-            ],
-            "aliases": {
-                "Profanity": "ConsoleTVs\\Profanity\\Facades\\Profanity"
-            }
-        }
-    },
-    "minimum-stability": "dev"
+	"name": "envatic/profanity",
+	"description": "PHP library to block bad words in a string",
+	"type": "library",
+	"require": {
+		"illuminate/support": "5.4.*|5.5.*|5.6.*|5.7.*|5.8.*|6.*|7.*|8.*|9.*"
+	},
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Stephen Isaac",
+			"email": "envatic@gmail.com"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Envatic\\Profanity\\": "."
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Envatic\\Profanity\\Tests\\": "tests"
+		}
+	},
+	"extra": {
+		"laravel": {
+			"providers": [
+				"Envatic\\Profanity\\ProfanityServiceProvider"
+			],
+			"aliases": {
+				"Profanity": "Envatic\\Profanity\\Facades\\Profanity"
+			}
+		}
+	},
+	"minimum-stability": "dev"
+	
 }

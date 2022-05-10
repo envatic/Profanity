@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of consoletvs/profanity.
+ * This file is part of envatic/profanity.
  *
  * (c) Erik Campobadal <soc@erik.cat>
  *
@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace ConsoleTVs\Profanity\Facades;
+namespace Envatic\Profanity\Facades;
 
-use ConsoleTVs\Profanity\Builder;
+use Envatic\Profanity\Builder;
 use Illuminate\Support\Facades\Facade;
 
 /**

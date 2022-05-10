@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of consoletvs/profanity.
+ * This file is part of envatic/profanity.
  *
  * (c) Erik Campobadal <soc@erik.cat>
  *
@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace ConsoleTVs\Profanity\Classes;
+namespace Envatic\Profanity\Classes;
 
 /**
  * This is the profanity class.
@@ -21,6 +21,7 @@ class Blocker
     public $dictionary;
     public $blocker;
     public $text;
+    public array $lang = [];
     public $strict = false;
     public $strictClean = true;
 
@@ -48,7 +49,6 @@ class Blocker
     public function text($text)
     {
         $this->text = $text;
-
         return $this;
     }
 
@@ -62,7 +62,6 @@ class Blocker
     public function strict($strict)
     {
         $this->strict = $strict;
-
         return $this;
     }
 
@@ -76,7 +75,6 @@ class Blocker
     public function strictClean($strict)
     {
         $this->strictClean = $strict;
-
         return $this;
     }
 
@@ -90,7 +88,6 @@ class Blocker
     public function blocker($blocker)
     {
         $this->blocker = $blocker;
-
         return $this;
     }
 
@@ -104,7 +101,19 @@ class Blocker
     public function dictionary($dictionary)
     {
         $this->dictionary = is_array($dictionary) ? $dictionary : json_decode(file_get_contents($dictionary), true);
+        return $this;
+    }
 
+    /**
+     * Set the blocker dictionary (string = path to json, array = dictionary) (bad words).
+     *
+     * @param mixed $dictionary
+     *
+     * @return self
+     */
+    public function lang($lang)
+    {
+        $this->lang = is_array($lang)?$lang:[$lang];
         return $this;
     }
 
@@ -125,7 +134,8 @@ class Blocker
      */
     public function badWords()
     {
-        return collect($this->dictionary)->filter(function ($value) {
+        
+         $words  = collect($this->dictionary)->filter(function ($value) {
             $matches = [];
             if ($this->strict) {
                 return preg_match('/'.$value['word'].'/iu', $this->text, $matches, PREG_UNMATCHED_AS_NULL);
@@ -138,7 +148,10 @@ class Blocker
                 'language' => $value['language'],
                 'word'     => $value['word'],
             ];
-        })->toArray();
+        });
+        return count($this->lang)? $words->filter(function($value){
+             return in_array($value['language'],$this->lang);
+        })->toArray():$words->toArray();
     }
 
     /**
@@ -172,7 +185,6 @@ class Blocker
         if ($this->strictClean) {
             return str_repeat($this->blocker[0], strlen($word));
         }
-
         return $this->blocker;
     }
 }
